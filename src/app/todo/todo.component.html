@@ -1,0 +1,50 @@
+<div class="todoItem">
+    <div class="buttons">
+        <img (click)="onDel(taskName.id)" src="../../assets/del.png" alt="delete"/>
+        <img (click)="onEd(taskName.id)" src="../../assets//ed.png" alt="edit"/>
+    </div>
+
+    <div class="user">
+        <img src="../../assets/user.png" alt="user"/>
+    </div>
+
+    <div class="text-field">
+        <div>
+            <h2>Title</h2>
+            <h3>{{taskName.title}}</h3>
+        </div>
+        <div>
+            <h2>Place</h2>
+            <h3>{{taskName.place}}</h3>
+        </div>
+    </div>
+
+    <div *ngIf="editToggle" class="edit-banner">
+
+        <div class="edit-inputs">
+            <div class="arrow-back">
+
+                <div>
+                    <img (click)="closeBanner()" src="../../assets/arrow.png" alt="arrow"/>
+                </div>
+
+                <div class="edit-inp">
+                    <label for="categ">Change Category</label>
+                    <select [(ngModel)]="newCategory" name="categ" id="categ">
+                        <option value="Bussines">Bussines</option>
+                        <option value="Private">Private</option>
+                    </select>
+                    <label for="tit">Change Title</label>
+                    <input [(ngModel)]="newTitle" id="tit" type="text"/>
+                    <label for="plcc">Change Place</label>
+                    <input [(ngModel)]="newPlace" id="plcc" type="text"/>
+                    <button (click)="onEdit(newCategory, newTitle, newPlace)">Edit</button>
+                </div>
+
+            </div>
+        </div>
+    
+    </div>
+    
+</div>
+
